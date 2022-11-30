@@ -19,6 +19,14 @@ class MyTestCase(unittest.TestCase):
     def test_space_is_recognized_as_an_invalid_symbol(self):
         with self.assertRaises(ValueError):
             convert_roman_to_arabic('X X')
+    
+    def test_four_characters_numbers_recognized_as_invalid_number(self):    #test aggiunto
+        with self.assertRaises(ValueError):
+            convert_roman_to_arabic('IIII')
+            
+    def test_subctration_of_two_numbers_is_impossible(self):    #test aggiunto
+        with self.assertRaises(ValueError):
+            convert_roman_to_arabic('XXC')
 
     def test_XIII_is_13(self):
         self.assertEqual(convert_roman_to_arabic('XIII'), '13')
